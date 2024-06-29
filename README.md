@@ -15,6 +15,8 @@ The application allows for the creation and management of patient profiles with 
 - Phone Number
 - Email
 
+_Time Given_ - 1 hour
+
 ## Branches
 
 - **main**: Contains the initial implementation of the patient profile system as completed during the interview.
