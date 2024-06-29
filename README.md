@@ -2,6 +2,8 @@
 
 This repository contains the implementation of a patient profile management system, developed as part of a technical interview task. The backend uses Django REST Framework, while the frontend is built with React.js.
 
+Do checkout the completed project in `post-interview` branch, which is been updated after the interview.
+
 ## Description
 
 The application allows for the creation and management of patient profiles with the following required fields:
