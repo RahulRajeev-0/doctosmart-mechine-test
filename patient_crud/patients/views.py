@@ -21,20 +21,23 @@ class PatientView(APIView):
     
 
     def post(self, request):
-        new_patient = request.get('patient')
-        serializer = PatientSerializer(new_patient)
+        new_patient = request.data
+        print(new_patient)
+        serializer = PatientSerializer(data=new_patient)
         if serializer.is_valid():
             serializer.save()
-            return Response('Patient added successfully', status=status.HTTP_201_CREATED)
+            return Response('Patient added successfully', 
+                            status=status.HTTP_201_CREATED)
         else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors, 
+                            status=status.HTTP_400_BAD_REQUEST)
 
 
 
     def delete(self, request):
-        patient_id = request.get('id')
+        patient_id = request.data.get('id')
         try: 
-            patient = Patient.objects.get(id=id)
+            patient = Patient.objects.get(id=patient_id)
         except Exception as e:
             print(e)
             return Response({'message':'unable to find the patient'}, 
@@ -53,7 +56,8 @@ class PatientView(APIView):
             patient_serializer = PatientSerializer(patient, data=new_patient)
             if patient_serializer.is_vaid():
                 patient_serializer.save()
-                return Response({'message':'updated successfully'}, status=status.HTTP_200_OK)
+                return Response({'message':'updated successfully'}, 
+                                status=status.HTTP_200_OK)
         except Exception as e:
             print(e)
         
