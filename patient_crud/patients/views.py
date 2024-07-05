@@ -11,7 +11,6 @@ from .serializers import PatientSerializer
 
 class PatientView(APIView):
 
-
 # list view
     def get(self, reqeust):
         list = Patient.objects.all()
@@ -31,7 +30,6 @@ class PatientView(APIView):
         else:
             return Response(serializer.errors, 
                             status=status.HTTP_400_BAD_REQUEST)
-
 
 
     def delete(self, request):
